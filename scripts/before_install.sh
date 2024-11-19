@@ -15,6 +15,8 @@ sudo ./install auto
 # update os & install python3
 sudo apt-get update
 sudo apt-get install -y python3 python3-dev python3-pip python3-venv
+pip install django
+python3 manage.py migrate
 pip install --user --upgrade virtualenv
 
 # delete app

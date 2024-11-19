@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
-# kill any servers that may be running in the background 
+# Kill any Django servers running in the background
 sudo pkill -f runserver
 
-# kill frontend servers if you are deploying frontend
+# If deploying frontend, uncomment to kill Tailwind or Node.js servers
 # sudo pkill -f tailwind
 # sudo pkill -f node
 
+# Navigate to the Django project directory
 cd /home/ubuntu/django-aws_cicd/
 
-# activate virtual environment
+# Activate the virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
-install requirements.txt
+# Install requirements
 pip install -r /home/ubuntu/django-aws_cicd/requirements.txt
 
-# run server
-screen -d -m python3 manage.py runserver 0:8000
+# Run the server in a detached screen session
+screen -dmS django_server python3 manage.py runserver 0.0.0.0:8000

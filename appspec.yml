@@ -1,10 +1,17 @@
 version: 0.0
 os: linux
+
 files:
-  - source: /
-    destination: /home/ubuntu/django-aws_cicd
+  - source: /  # All files from the source directory
+    destination: /home/ubuntu/django-aws_cicd  # Destination for your files
+
 hooks:
   BeforeInstall:
-      - location: scripts/before_install.sh
+    - location: scripts/before_install.sh  # Path to before_install.sh
+      timeout: 180  # Optional: Timeout for the BeforeInstall hook
+      runas: root  # This ensures the script runs as root
+
   AfterInstall:
-      - location: scripts/after_install.sh
+    - location: scripts/after_install.sh  # Path to after_install.sh
+      timeout: 180  # Optional: Timeout for the AfterInstall hook
+      runas: root  # This ensures the script runs as root

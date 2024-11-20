@@ -8,6 +8,7 @@ sudo pkill -f runserver
 # sudo pkill -f node
 
 cd /home/ubuntu/django-aws_cicd/
+chmod +x /home/ubuntu/django-aws_cicd/scripts/after_install.sh
 
 # activate virtual environment
 python3 -m venv venv

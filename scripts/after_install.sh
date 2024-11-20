@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+
 # Ensure this script is executable
 chmod +x /home/ubuntu/django-aws_cicd/scripts/after_install.sh
+
 # kill any servers that may be running in the background 
 sudo pkill -f runserver
 
